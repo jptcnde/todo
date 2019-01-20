@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "jest/globals": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "prettier",
+    "prettier/react",
+    "prettier/standard",
+    "plugin:jest/recommended"
+  ],
+  "plugins": [
+    "react",
+    "prettier",
+    "jest",
+    "babel"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": [
+          "node_modules",
+          "src"
+        ]
+      }
+    }
+  },
+  "rules": { // off - 0, warn - 1, error - 2
+    "quotes": [1, "single"], // If a rule has additional options, you can specify them using array literal syntax
+    "strict": 0,
+    "semi": [2, "always"],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }]
+  }
+}
