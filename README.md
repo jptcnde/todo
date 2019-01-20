@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+### Structure
+The project is designed for showcase purposes only, the structure might overkill for
+a simple app but this only shows a better approach on designing a big single page app
+
+in which I have adapted the structure from
+
+[react-boilerplate](https://github.com/react-boilerplate/react-boilerplate)
+as the project proven itself over the years
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -27,18 +37,32 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Data Model
+- User
+  - id : str
+  - name: str
+- PaymentMode
+  - americanExpress: str
+  - visa: str
+  - dbsPayla: str
+- Transaction
+  - amount: number
+  - id: str
+  - user: User
+  - paymentMode
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Tech Stack
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- CRA 2
+- React 16.7.* (features react hooks alpha version)
+  - the implementation is located at src/containers/PaymentTransaction/TxnDataTable.js
+- material ui
+- rematch redux
+- jest
+- recharts
+- eslint (AirBnB standard rules)
+- prettier
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
