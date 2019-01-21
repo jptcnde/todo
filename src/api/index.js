@@ -1,15 +1,31 @@
 const DB = 'TODO_DB';
 
-const NETWORK_BUFF = 1000; // dummy network buffer
+const NETWORK_BUFF = 200; // dummy network buffer
+
+const getJSON = () => JSON.parse(localStorage.getItem(DB) || '{}');
 
 export function upsert(item, keyProp = 'id') {
-  return Promise((resolve) => (
+  return new Promise((resolve) => (
     window.setTimeout(() => {
-      const db = localStorage.getItem(DB) || {};
+      const db = getJSON();
 
-      db[keyProp] = { ...db[keyProp], ...item };
+      db[item[keyProp]] = item;
     
-      localStorage.setItem(DB, db);
+      localStorage.setItem(DB, JSON.stringify(db));
+      resolve();
+    }, NETWORK_BUFF)
+  ));
+
+}
+
+export function remove(id) {
+  return new Promise((resolve) => (
+    window.setTimeout(() => {
+      const db = getJSON();
+
+      delete db[id];
+    
+      localStorage.setItem(DB, JSON.stringify(db));
       resolve();
     }, NETWORK_BUFF)
   ));
@@ -18,6 +34,6 @@ export function upsert(item, keyProp = 'id') {
 
 export const get = () => new Promise((resolve) => (
   window.setTimeout(() => 
-    resolve(Object.entries(localStorage.getItem(DB) || {}).map(([,v]) => v))
+    resolve(Object.entries(getJSON()).map(([,v]) => v))
   , NETWORK_BUFF)
 ));

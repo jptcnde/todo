@@ -1,9 +1,4 @@
-export const update = (state, prop, val) => ({
+export const loadData = (state, items) => ({ // eslint-disable-line
   ...state,
-  [prop]: val
-});
-
-export const updateConfiguration = (state, { settings }) => ({
-  ...state,
-  settings
+  items
 });
