@@ -7,4 +7,6 @@ const store = init({
  plugins: [selectPlugin()]
 });
 
+export const { select: selector } = store;
+
 export default store;

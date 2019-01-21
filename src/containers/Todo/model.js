@@ -1,12 +1,15 @@
 import * as reducers from './reducers';
 import * as selectors from './selectors';
+import effects from './effects';
 
 
 export default {
-  name: 'app',
+  name: 'todo',
   state: {
-    settings: {},
+    items: [],
+    selected: null
   },
   reducers,
-  selectors
+  selectors,
+  effects
 };
